@@ -1,4 +1,5 @@
 
+var googleApiKey = "AIzaSyAzhuESasx-4iJYwSRu1QTFC0yVXKpItVk";
 function loadData() {
 
     var $body = $('body');
@@ -11,11 +12,25 @@ function loadData() {
     $wikiElem.text("");
     $nytElem.text("");
 
-    // load streetview
+    // start URL for the Google Maps API
+    var startURL = "https://maps.googleapis.com/maps/api/streetview?size=600x400&location=";
 
-    // YOUR CODE GOES HERE!
+
+    //collect the values of the street and city boxes
+    var streetName = $('#street').val();
+    var cityName = $('#city').val();
+    var address = streetName + ',' + cityName;
+
+    //change the greeting text
+    $greeting.text("So you want to live at " + address + '?');
+
+    //complete the URL for the Google Maps API
+    var endURL = startURL + address + '&key=' + googleApiKey;
+
+    //append the image to the body
+    $body.append('<img class="bgimg" src="' + endURL + '">');
 
     return false;
-};
+}
 
 $('#form-container').submit(loadData);
