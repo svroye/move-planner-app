@@ -1,4 +1,4 @@
-# move planner app
+# Move Planner App
 
 Project for Udacity's Front-End Nanodegree.
 Include Google Street View API, NYT API, Wikipedia API
